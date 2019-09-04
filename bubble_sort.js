@@ -1,14 +1,12 @@
 function bubbleSort(arr){
-  console.log('origin array',arr);
-  let toIndex=arr.length;
-  while(toIndex>1){
-    toIndex--;
-    console.log('toIndex',toIndex);
-    for(let i=0;i<toIndex;i++){
-      //如果右側的值比較大就交換
+  let compareCount=arr.length;
+  //We don't need to compare the last item because the last two element has been compared and changed in the last second time.
+  while(compareCount-1>0){
+    compareCount--;
+    for(let i=0;i<compareCount;i++){
+      //If the right value is bigger than left value we need to change their position.
       if(arr[i]>arr[i+1]){
         [arr[i],arr[i+1]]=[arr[i+1],arr[i]];
-        console.log(arr);
       }
     }
   }
