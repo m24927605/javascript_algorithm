@@ -1,3 +1,5 @@
+const {isSorted}=require('./utils');
+
 function selectionSort(arr){
   for(let i=0;i<arr.length;i++){
     //suppose the min value is the each value of the array.
@@ -19,4 +21,4 @@ function selectionSort(arr){
 
 const arr=[7,5,1,20,8];
 console.log(selectionSort(arr));
-console.log(isSorted(arr));
+console.log(isSorted(selectionSort(arr)));

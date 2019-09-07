@@ -1,3 +1,5 @@
+const {isSorted}=require('./utils');
+
 function bubbleSort(arr){
   let compareCount=arr.length;
   //We don't need to compare the last item because the last two element has been compared and changed in the last second time.
@@ -15,4 +17,4 @@ function bubbleSort(arr){
 
 const arr=[7,5,1,20,8];
 console.log(bubbleSort(arr));
-console.log(isSorted(arr));
+console.log(isSorted(bubbleSort(arr)));

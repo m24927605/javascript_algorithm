@@ -21,3 +21,4 @@ function shellSort(arr){
 
 const arr=[7,5,1,20,8];
 console.log(shellSort(arr));
+console.log(isSorted(shellSort(arr)));

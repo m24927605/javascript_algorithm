@@ -1,3 +1,5 @@
+const {isSorted}=require('./utils');
+
 function insertionSort(arr){
   for(let i=0;i<arr.length;i++){
     let pickIndex=i;
@@ -13,4 +15,4 @@ function insertionSort(arr){
 
 const arr=[7,5,1,20,8];
 console.log(insertionSort(arr));
-console.log(isSorted(arr));
+console.log(isSorted(insertionSort(arr)));
