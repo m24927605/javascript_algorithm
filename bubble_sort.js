@@ -15,3 +15,4 @@ function bubbleSort(arr){
 
 const arr=[7,5,1,20,8];
 console.log(bubbleSort(arr));
+console.log(isSorted(arr));

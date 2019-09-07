@@ -31,3 +31,4 @@ function bucketSort (arr,bucketCapacity) {
 
 const arr=[37,1,18,27,5,10,33,24,41];
 console.log(bucketSort(arr,10));
+console.log(isSorted(arr));

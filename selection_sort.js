@@ -19,3 +19,4 @@ function selectionSort(arr){
 
 const arr=[7,5,1,20,8];
 console.log(selectionSort(arr));
+console.log(isSorted(arr));

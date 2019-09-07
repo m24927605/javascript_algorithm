@@ -13,3 +13,4 @@ function insertionSort(arr){
 
 const arr=[7,5,1,20,8];
 console.log(insertionSort(arr));
+console.log(isSorted(arr));
