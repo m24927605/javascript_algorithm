@@ -1,4 +1,3 @@
-
 const {isSorted}=require('./utils');
 
 function quickSort(arr) {
