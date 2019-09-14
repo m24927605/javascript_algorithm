@@ -1,23 +1,22 @@
 function binarySearch(arr,target,startIndex,endIndex){
-  //先求中間index
+  //Get the middle index first.
   let midIndex=Math.floor((startIndex+endIndex)/2);
-  console.log('midIndex',midIndex);
-  //target剛好是位在中間index
+  //if the middle value is equal to target return its index
   if(arr[midIndex]===target){
     return midIndex;
   }
-  //如果中間值大於target，所以target落在中間值左側，於是中間index-1繼續求新的中間值跑遞迴。
+  //If the middle value is bigger than target that neans the value is on the left side of the middle vlue. 
   else if(arr[midIndex]>target){
-    binarySearch(arr,target,startIndex,midIndex-1);
+    return binarySearch(arr,target,startIndex,midIndex-1);
   }
-  //如果中間值小於target，所以target落在中間值右側，於是中間index+1繼續求新的中間值跑遞迴。
+  //If the middle value is smaller than target that means the value is on the right side of the middle value.
   else{
-    binarySearch(arr,target,midIndex+1,endIndex);
+    return binarySearch(arr,target,midIndex+1,endIndex);
   }
 }
 
-const tmparr=[1, 3, 5, 7, 8, 9];
-const target=5;
+const arr=[4,2,8,6,0,5,1,7,3,9];
+const target=7;
 
-const index=binarySearch(tmparr,target,0,tmparr.length-1);
+const index=binarySearch(arr,target,0,arr.length-1);
 console.log(index)
