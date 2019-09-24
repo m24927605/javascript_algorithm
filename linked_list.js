@@ -1,71 +1,124 @@
-function LinkedList() {
-  this.head = null;
-  this.tail = null;
-}
-
-function Node(value, next, prev) {
-  this.value = value;
-  this.next = next;
-  this.prev = prev;
-}
-
-// Add nodes methods
-
-LinkedList.prototype.addToHead = function (value) {
-  const newNode = new Node(value, this.head, null);
-  if (this.head) this.head.prev = newNode;
-  else this.tail = newNode;
-  this.head = newNode;
-};
-
-LinkedList.prototype.addToTail = function (value) {
-  const newNode = new Node(value, null, this.tail);
-  if (this.tail) this.tail.next = newNode;
-  else this.head = newNode;
-  this.tail = newNode;
-}
-
-// Remove nodes methods
-LinkedList.prototype.removeHead = function () {
-  if (!this.head) return null;
-  let value = this.head.value;
-  this.head = this.head.next;
-
-  if (this.head) this.head.prev = null;
-  else this.tail = null;
-
-  return value;
-
-}
-
-LinkedList.prototype.removeTail = function () {
-  if (!this.tail) return null;
-  let value = this.tail.value;
-  this.tail = this.tail.prev;
-
-  if (this.tail) this.tail.next = null;
-  else this.head = null;
-
-  return value;
-}
-
-// Search method
-
-LinkedList.prototype.search = function (searchValue) {
-  let currentNode = this.head;
-
-  while (currentNode) {
-    if (currentNode.value === searchValue) return currentNode;
-    currentNode = currentNode.next;
+class LinkedList { 
+  
+	constructor() { 
+		this.head = null; 
+		this.size = 0; 
   }
-  return null;
-}
 
-const list = new LinkedList();
+  add(element) { 
+    const node = new Node(element); 
+    let current; 
+    if (this.head == null){
+      this.head = node; 
+    }
+    else { 
+      current = this.head; 
+      while (current.next) { 
+        current = current.next; 
+      } 
+      current.next = node; 
+    } 
+    this.size++; 
+  }
 
-list.addToHead(1);
-list.addToTail(2);
+  insertAt(element, index) 
+  { 
+    if (index > 0 && index > this.size){
+      return false; 
+    }
+    else { 
+      const node = new Node(element); 
+      let curr, prev; 
+      curr = this.head; 
+      if (index == 0) { 
+        node.next = head; 
+        this.head = node; 
+      } else { 
+        curr = this.head; 
+        let i = 0; 
+        while (i < index) { 
+          i++; 
+          prev = curr; 
+          curr = curr.next; 
+        } 
+        node.next = curr; 
+        prev.next = node; 
+      } 
+      this.size++; 
+    } 
+  }
 
-console.log(list.search(1));
-console.log(list.search(2));
-console.log(list.search(3000));
+  removeFrom(index) { 
+    if (index > 0 && index > this.size){
+      return -1; 
+    }
+    else { 
+      let curr, prev, it = 0; 
+      curr = this.head; 
+      prev = curr; 
+      if (index === 0) { 
+        this.head = curr.next; 
+      } else { 
+        while (it < index) { 
+          it++; 
+          prev = curr; 
+          curr = curr.next; 
+        }
+        prev.next = curr.next; 
+      } 
+      this.size--; 
+      return curr.element; 
+    } 
+  } 
+
+  removeElement(element) { 
+    let current = this.head; 
+    let prev = null; 
+
+    while (current != null) { 
+      if (current.element === element) { 
+        if (prev == null) { 
+          this.head = current.next; 
+        } else { 
+          prev.next = current.next; 
+        } 
+        this.size--; 
+        return current.element; 
+      } 
+      prev = current; 
+      current = current.next; 
+    } 
+    return -1; 
+  } 
+
+  indexOf(element) { 
+    let count = 0; 
+    let current = this.head; 
+    while (current != null) { 
+      if (current.element === element){
+        return count; 
+      }
+      count++; 
+      current = current.next; 
+    } 
+    return -1; 
+  }
+
+  isEmpty() { 
+    return this.size == 0; 
+  }
+
+  getSize(){ 
+    console.log(this.size); 
+  }
+
+  printList() { 
+    let curr = this.head; 
+    let str = ""; 
+    while (curr) { 
+      str += curr.element + " "; 
+      curr = curr.next; 
+    } 
+    console.log(str); 
+  }
+} 
