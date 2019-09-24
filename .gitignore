@@ -1,0 +1,15 @@
+.vscode/
+node_modules/
+yarn.lock
+package-lock.json
+.next
+*/error/*.*
+*/log/*.*
+*/pid/*.*
+yarn-error.log
+.DS_Store
+marcus_test_process.json
+mongodb/
+.env
+.serverless
+.gitlab-ci.yml
