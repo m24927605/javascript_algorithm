@@ -1,22 +1,27 @@
-function Node(data) {
-  this.data = data;
-  this.parent = null;
-  this.children = [];
+class Node{
+  constructor(data){
+    this.data = data;
+    this.parent = null;
+    this.children = [];
+  }
 }
 
-function Tree(data) {
-  var node = new Node(data);
-  this._root = node;
+class Tree{
+  constructor(data){
+    const node = new Node(data);
+    this._root = node;
+  }
+
+  traverseDF(callback){
+    (function recurse(currentNode) {
+      callback(currentNode); 
+      for (var i = 0, length = currentNode.children.length; i < length; i++) {
+        recurse(currentNode.children[i]);
+      }
+    })(this._root);
+  }
 }
 
-Tree.prototype.traverseDF = function(callback) {
-  (function recurse(currentNode) {
-    callback(currentNode); 
-    for (var i = 0, length = currentNode.children.length; i < length; i++) {
-      recurse(currentNode.children[i]);
-    }
-  })(this._root);
-};
 const tree = new Tree('1');
 
 tree._root.children.push(new Node('2'));
