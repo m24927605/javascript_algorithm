@@ -1,0 +1,24 @@
+const set= new Set();
+set.add(1);
+set.add(2);
+set.add(3);
+set.add(4);
+set.add(5);
+set.add('5');
+console.log('set',set);
+console.log('set.has(2)',set.has(2));
+console.log('size',set.size);
+console.log('delete',set.delete(5));
+console.log('set',set);
+set.clear();
+console.log('set',set);
+set.add(6);
+set.add(7);
+set.add(8);
+set.add(9);
+set.add(10);
+set.forEach((value)=>{
+  console.log(value);
+});
+console.log('set.keys()',set.keys());
+console.log('set.values()',set.values());
