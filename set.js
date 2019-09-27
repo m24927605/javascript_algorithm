@@ -17,6 +17,7 @@ set.add(7);
 set.add(8);
 set.add(9);
 set.add(10);
+console.log('set.entries()',set.entries());
 set.forEach((value)=>{
   console.log(value);
 });
