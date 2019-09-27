@@ -1,0 +1,11 @@
+const m = new Map();
+const obj = {wow: "Hello World"};
+m.set(obj,'new world');
+console.log(m);
+console.log(m.get(obj));
+console.log(m.has(obj));
+console.log(m.size);
+console.log(m.keys());
+console.log(m.values());
+m.delete(obj);
+console.log(m);
