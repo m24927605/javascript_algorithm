@@ -15,7 +15,7 @@ function binarySearch(arr,target,startIndex,endIndex){
   }
 }
 
-const arr=[4,2,8,6,0,5,1,7,3,9];
+const arr=[0,1,2,3,4,5,6,7,8,9];
 const target=7;
 
 const index=binarySearch(arr,target,0,arr.length-1);
